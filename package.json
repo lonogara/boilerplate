@@ -22,6 +22,7 @@
     "pro:pipe": "yarn pipe PRODUCTION:LIGHT",
     "pro:pipe_master": "yarn pipe PRODUCTION:MASTER",
     "pro:serve": "http-server _site -a localhost -p 7000 -o -c-1",
+    "prebuild": "yarn node .scripts/prebuild.js",
     "build": "run-s pro:pack pro:pipe pro:serve",
     "build:light": "run-s lonogara:add pro:pack pro:pipe",
     "build:master": "run-s lonogara:add pro:pack pro:pipe_master",
@@ -64,7 +65,6 @@
     "path-exists": "^3.0.0",
     "prettier": "^1.10.2",
     "rehype": "^5.0.1",
-    "watch": "^1.0.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.0"
