@@ -4,7 +4,7 @@
 
 ```shell
 git clone https://github.com/kthjm/lonogara-boilerplate [NAME]
-cd NAME
+cd [NAME]
 echo "GITHUB_ACCESS_TOKEN=XXXX" > .env
 yarn
 yarn start
