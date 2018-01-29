@@ -1,0 +1,8 @@
+[build]
+  publish = "_site"
+  command = "yarn build:light"
+
+[context.production]
+  command = "yarn build:master"
+
+[[redirects]]

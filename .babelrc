@@ -1,0 +1,17 @@
+{
+  "presets": [
+    "flow",
+    "react"
+  ],
+  "plugins": [
+    ["transform-runtime", {
+      "helpers": false,
+      "polyfill": false,
+      "regenerator": true
+    }]
+  ],
+  "env": {
+    "cjs": { "presets": [ ["env", { "targets": { "browsers": ["last 2 versions", "safari >= 7"] } }] ] },
+    "esm": { "presets": [ ["env", { "targets": { "browsers": ["last 2 versions", "safari >= 7"] }, "modules": false }] ] }
+  }
+}
