@@ -11,7 +11,7 @@
     "singleQuote": true
   },
   "scripts": {
-    "lonogara:add": "env-cmd ./.env cross-var yarn add git+https://$GITHUB_ACCESS_TOKEN@$npm_package_lonogara",
+    "lonogara:add": "env-cmd ./.env cross-var yarn add git+https://$LONOGARA_TOKEN@$npm_package_lonogara",
     "env:cjs": "cross-env BABEL_ENV=cjs",
     "env:esm": "cross-env BABEL_ENV=esm",
     "pipe": "yarn env:cjs chin -c .scripts/chin.config.json -p .scripts/chin.preset.js -v",
