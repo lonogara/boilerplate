@@ -34,7 +34,7 @@
     "atra": "^1.1.2",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.26.0",
-    "lonogara-tool": "https://github.com/kthjm/lonogara-tool#0",
+    "lonogara-sdk": "https://github.com/kthjm/lonogara-sdk#0",
     "orph": "^3.0.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

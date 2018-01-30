@@ -1,5 +1,5 @@
 import React from 'react'
-import { internalHtml } from 'lonogara-tool/toreact'
+import { internalHtml } from 'lonogara-sdk/toreact'
 
 export default src =>
   fetch(src)
