@@ -1,4 +1,4 @@
-![](https://github.com/kthjm/lonogara-ikc/blob/master/src/single/rogo/opengraph.yellow.svg)
+![](https://i.gyazo.com/3a74206535199e07322a9ef8745fec47.png)
 
 # lonogara boilerplate
 
