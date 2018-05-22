@@ -4,19 +4,17 @@ import { Mobile, Desktop } from 'lonogara'
 import Views from './views'
 
 const rendering = (isMobile) => {
-
   const Lonogara = isMobile ? Mobile : Desktop
-
   render(
     <Fragment>
       <style>{``}</style>
-      <Lonogara {...props(isMobile)} />
+      <Lonogara {...Props(isMobile)} />
     </Fragment>,
     document.getElementById('app')
   )
 }
 
-const props = (isMobile) => ({
+const Props = (isMobile) => ({
   // firstIndex: 0,
   views: Views(isMobile),
   Preloader: () => false,
@@ -33,12 +31,9 @@ const props = (isMobile) => ({
   links: []
 })
 
-window.addEventListener('load', () =>
-  rendering(
-    navigator
-    .userAgent
-    .toLowerCase()
-    .includes('mobile')
-  )
+rendering(
+  navigator
+  .userAgent
+  .toLowerCase()
+  .includes('mobile')
 )
-
