@@ -9,20 +9,16 @@ import indexHTML, { TITLE } from './chin.indexHTML.js'
 import { devdir, prodir } from './.variables.js'
 
 /* extensions */
-
 const ink2pdf = inkscape('pdf')
 const ink2png = inkscape('png', { width: 1024, background: '#ffffff' })
-
-const m2h = unified('.html', presetM2H())
-
-const img = imagemin({
+const md2html = unified('.html', presetM2H())
+const img2min = imagemin({
   gifsicle: {},
   jpegtran: {},
   optipng: {},
   svgo: {}
 })
-
-const png2favs = favicons({
+const svg2fav = favicons({
   nameAsDir: true,
   config: {
     path: 'favicons',
@@ -35,20 +31,20 @@ const png2favs = favicons({
 const assets = 'frame'
 
 const ignoredExMaster = [
-  'favicons.png',
+  '_redirects',
+  'favicons.svg',
   '**.txt',
   '**.xml'
 ]
 
 const commonProcessors = {
-  md: m2h,
-  png: img,
-  jpg: img,
-  svg: img
+  md: md2html,
+  png: img2min,
+  jpg: img2min,
+  svg: img2min
 }
 
 const configs = {
-
   'pre': {
     put: 'preframe',
     out: assets,
@@ -57,38 +53,37 @@ const configs = {
       ['*', { svg: ink2png }]
     ]
   },
-
   'dev': {
     put: assets,
     out: devdir,
     ignored: ignoredExMaster,
     processors: commonProcessors
   },
-
   'mir': {
     put: assets,
     out: prodir,
     ignored: ignoredExMaster,
-    processors: commonProcessors,
+    processors: [
+      ['favicons.svg', { svg: svg2fav }],
+      ['*', commonProcessors]
+    ],
     before: () => outputFile(
       join(prodir, 'index.html'),
-      indexHTML('mir')
+      indexHTML('mir', svg2fav.after())
     )
   },
-
   'pro': {
     put: assets,
     out: prodir,
     processors: [
-      ['favicons.png', { png: png2favs }],
+      ['favicons.svg', { svg: svg2fav }],
       ['*', commonProcessors]
     ],
     after: () => outputFile(
       join(prodir, 'index.html'),
-      indexHTML('pro', png2favs.after())
+      indexHTML('pro', svg2fav.after())
     )
   }
-
 }
 
 const { npm_lifecycle_event } = process.env

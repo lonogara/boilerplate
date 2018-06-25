@@ -76,15 +76,16 @@ const Head = ({ children }) =>
   {children}
 </head>
 
-const MirIndexHtml = () =>
+const MirIndexHtml = ({ favicons }) =>
 <html lang="ja">
   <Head>
     {ogs}
+    {favicons}
     {onerror}
+    <script defer={true} src="./bundle.js" />
   </Head>
   <body>
     <div id="app" />
-    <script src="./bundle.js" />
   </body>
 </html>
 
@@ -99,10 +100,10 @@ const ProIndexHtml = ({ favicons }) =>
     {ogs}
     {favicons}
     {ga}
+    <script defer={true} src="./bundle.js" />
   </Head>
   <body>
     <div id="app" />
-    <script src="./bundle.js" />
   </body>
 </html>
 
@@ -116,7 +117,7 @@ unified()
 .processSync(
   '<!DOCTYPE html>' +
   renderToStaticMarkup(
-    type === 'mir' ? <MirIndexHtml /> :
+    type === 'mir' ? <MirIndexHtml favicons={h2r(faviconsElements.join(''))} /> :
     type === 'pro' ? <ProIndexHtml favicons={h2r(faviconsElements.join(''))} />
     : false
   )

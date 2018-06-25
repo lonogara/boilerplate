@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { render } from 'react-dom'
-import { Mobile, Desktop } from 'lonogara'
+import { Mobile, Desktop } from 'react-lonogara'
 import Views from './views'
 
 const rendering = (isMobile) => {
